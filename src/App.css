@@ -1,38 +1,114 @@
-.App {
-  text-align: center;
+:root {
+  --border-radius: 1rem;
+  --alpha-bg: rgba(0, 0, 0, 0.04);
+  --alpha-primary: rgba(13, 110, 253, 0.1);
+  --off-canvas: 270px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.placeholder-glow {
+  animation: placeholder-glow 2s ease-in-out infinite
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.dashboard {
+  min-height: calc(100vh - 120px);
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  max-width: 1000px;
+}
+.bank-card {
+  border-radius: var(--border-radius);
+  border-color: var(--alpha-primary);
+  transition: all 0.5s;
+}
+.bank-card:not(.bank-card-menu):hover {
+  box-shadow: 0 0.5rem 1rem var(--alpha-primary);
+  transform: scale(1.01);
+}
+.bank-card .card-body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  gap: 1rem;
+}
+.bank-card .card-body .progress {
+  margin: auto;
+}
+.bank-card .card-body > * {
+  display: table-cell;
+  margin: 0;
+}
+.card-img-wrapper {
+  background: var(--alpha-bg);
+  padding: 1rem;
+  display: inline-block;
+  border-radius: calc(var(--border-radius) / 2);
+}
+
+.card-img-wrapper img {
+  /* aspect-ratio: 2 / 1; */
+  object-fit: contain;
+  display: inline-block;
+  width: 200px;
+  height: 70px;
+  max-width: 100%;
+}
+.bank-card .card-body .btn {
+  /* border-radius: calc(var(--border-radius) / 2); */
+}
+.profile-wrapper {
+  width: 50px;
+  height: 50px;
+  background:var(--alpha-primary);
+  padding: .5rem;
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.offcanvas .user-profile {
+  margin-right: auto!important;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.fas {
+  transition:all .5s;
+}
+.btn_active .fas {
+  transform: rotate(180deg);
+}
+.login-wrapper {
+  position: fixed;
+  inset: 0;
+  background: var(--alpha-primary);
+  backdrop-filter: blur(20px);
+  z-index: 11111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* display: nones; */
+}
+.login-wrapper form {
+  padding: 3vw;
+  background: var(--alpha-primary);
+  border-radius: 2rem;
+}
+@media (min-width: 992px) {
+  .bank-card .card-body {
+    display: table;
+    table-layout: fixed;
   }
-  to {
-    transform: rotate(360deg);
+  .bank-card .card-body > * {
+    vertical-align: middle;
+    max-width: 80px;
+  }
+  .offcanvas {
+    position: fixed;
+    transform: translate(0)!important;
+    float: left;
+    min-height: 100vh;
+    visibility: visible;
+    width: var(--off-canvas)!important;
+    border: none!important;
+  }
+  .main {
+    margin-left: var(--off-canvas)!important;
+    /* float: left; */
   }
 }
