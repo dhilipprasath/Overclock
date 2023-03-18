@@ -37,10 +37,10 @@ const LoanOffers = (props) => {
   };
   return (
     <div className="row">
-      <div className="col-12 col-sm-6 col-md-6 col-lg-12 pb-4 sticky-top d-nne d-lg-block">
+      <div className="col-12 pb-4 sticky-top d-nne d-lg-table-cell">
         <div className="card bank-card bank-card-menu h-100">
           <div className="card-body">
-            <div className="bank_name text-start">Bank Name</div>
+            <div className="bank_name text-start d-none d-lg-block">Bank Name</div>
             <div className="bank_interest">
               <button
                 className={sortInterestActive ? 'btn btn-light bg-transparent btn_active' : 'btn btn-light bg-transparent btn_inactive'}

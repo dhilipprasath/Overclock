@@ -30,6 +30,9 @@
   text-align: center;
   gap: 1rem;
 }
+.bank-card.bank-card-menu .card-body {
+  flex-direction: row;
+}
 .bank-card .card-body .progress {
   margin: auto;
 }
